@@ -1,11 +1,11 @@
-CC		= gcc
-AR		= ar
-ARFLAGS	= crs
-CFLAGS	= -Wall -Wextra -Werror
+CC		=	gcc
+AR		=	ar
+ARFLAGS	=	crs
+CFLAGS	=	-Wall -Wextra -Werror
 
-NAME = 		libft.a
+NAME 	= 	libft.a
 
-SRCS =		ft_atoi.c \
+SRCS	=	ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_isalnum.c \
@@ -38,38 +38,31 @@ SRCS =		ft_atoi.c \
 			ft_strtrim.c \
 			ft_substr.c \
 			ft_tolower.c \
-			ft_toupper.c
-
-B_SRCS = 	ft_lstadd_back_bonus.c \
-			ft_lstadd_front_bonus.c \
-			ft_lstclear_bonus.c \
-			ft_lstdelone_bonus.c \
-			ft_lstiter_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstmap_bonus.c \
-			ft_lstnew_bonus.c \
-			ft_lstsize_bonus.c
+			ft_toupper.c \
+		 	ft_lstadd_back.c \
+			ft_lstadd_front.c \
+			ft_lstclear.c \
+			ft_lstdelone.c \
+			ft_lstiter.c \
+			ft_lstlast.c \
+			ft_lstmap.c \
+			ft_lstnew.c \
+			ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
-B_OBJS = $(B_SRCS:.c=.o)
-ifdef BONUS
-	TARGET_OBJS = $(B_OBJS)
-else
-	TARGET_OBJS = $(OBJS)
-endif
 
 .PHONY: all
 all : $(NAME)
 
-$(NAME) : $(TARGET_OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(TARGET_OBJS)
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean :
-	rm -f $(OBJS) $(B_OBJS)
+	rm -f $(OBJS)
 
 .PHONY: fclean
 fclean : clean
@@ -79,7 +72,3 @@ fclean : clean
 re :
 	make fclean
 	make all
-
-.PHONY: bonus
-bonus :
-	make BONUS=0 all
