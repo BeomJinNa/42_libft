@@ -47,7 +47,22 @@ SRCS	=	ft_atoi.c \
 			ft_lstlast.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
-			ft_lstsize.c
+			ft_lstsize.c \
+			ft_printf/ft_printf.c \
+			ft_printf/putnbr_printf.c \
+			ft_printf/print_char.c \
+			ft_printf/print_dec.c \
+			ft_printf/print_hex.c \
+			ft_printf/print_int.c \
+			ft_printf/print_ptr.c \
+			ft_printf/print_str.c \
+			ft_printf/print_uint.c \
+			ft_printf/printf_utils.c \
+			ft_printf/printf_utils2.c \
+			ft_printf/printf_utils3.c \
+			ft_printf/putaddress.c \
+			ft_printf/puthex.c \
+			ft_printf/putuint.c
 
 OBJS = $(SRCS:.c=.o)
 
