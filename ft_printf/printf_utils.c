@@ -6,14 +6,14 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:09:07 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 07:53:50 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:47:25 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "flags.h"
 
-int	is_passable_character(const char c)
+int	is_passable_character_printf(const char c)
 {
 	if (c != 'c' && c != 's' && c != 'p' && c != 'd' && c != 'i'
 		&& c != 'u' && c != 'x' && c != 'X' && c != '%' && c != '\0')
@@ -21,14 +21,14 @@ int	is_passable_character(const char c)
 	return (0);
 }
 
-int	is_flag_character(const char c)
+int	is_flag_character_printf(const char c)
 {
 	if (c != '-' && c != '0' && c != '#' && c != ' ' && c != '+')
 		return (0);
 	return (1);
 }
 
-void	set_flags(const char c, t_flags *flags)
+void	set_flags_printf(const char c, t_flags *flags)
 {
 	if (c == '-')
 	{
@@ -45,7 +45,7 @@ void	set_flags(const char c, t_flags *flags)
 		flags->sign = F_SIGN_PLUS;
 }
 
-int	is_there_sign(long long num, t_flags *flags)
+int	is_there_sign_printf(long long num, t_flags *flags)
 {
 	if (flags->base_visible == 1 && num == 0)
 		return (0);

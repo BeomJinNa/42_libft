@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:04:46 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 07:16:47 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:49:52 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	write_nbr(char *buffer, size_t buffer_len);
 ssize_t		ft_write_printf(const void *buf, size_t nbyte);
 
-void	puthex_u(unsigned int num)
+void	puthex_u_printf(unsigned int num)
 {
 	char		buffer[8];
 	char		*ptr;
@@ -32,7 +32,7 @@ void	puthex_u(unsigned int num)
 	write_nbr(buffer, ptr - buffer);
 }
 
-void	puthex_l(unsigned int num)
+void	puthex_l_printf(unsigned int num)
 {
 	char		buffer[8];
 	char		*ptr;

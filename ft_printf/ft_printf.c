@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 00:41:31 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 18:54:54 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:50:18 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 static int	flush_buffer(char *buffer, char **ptr_buf);
 static int	print_conversion(const char **ptr, va_list *ap);
-int			print_int(int num, const char *ptr, char conversion);
-int			print_uint(unsigned int num, const char *ptr);
-int			print_char(char c, const char *ptr);
-int			print_str(char *str, const char *ptr);
-int			print_ptr(void *address, const char *ptr);
-int			is_passable_character(const char c);
+int			print_int_printf(int num, const char *ptr, char conversion);
+int			print_uint_printf(unsigned int num, const char *ptr);
+int			print_char_printf(char c, const char *ptr);
+int			print_str_printf(char *str, const char *ptr);
+int			print_ptr_printf(void *address, const char *ptr);
+int			is_passable_character_printf(const char c);
 ssize_t		ft_write_printf(const void *buf, size_t nbyte);
 
 int	ft_printf(const char *format, ...)
@@ -69,18 +69,18 @@ static int	print_conversion(const char **ptr, va_list *ap)
 	int			conversion_length;
 
 	c = *ptr;
-	while (is_passable_character(*(++c)))
+	while (is_passable_character_printf(*(++c)))
 		;
 	if (*c == 'i' || *c == 'd' || *c == 'x' || *c == 'X' || *c == 'u')
-		conversion_length = print_int(va_arg(*ap, int), *ptr, *c);
+		conversion_length = print_int_printf(va_arg(*ap, int), *ptr, *c);
 	if (*c == 'c')
-		conversion_length = print_char(va_arg(*ap, int), *ptr);
+		conversion_length = print_char_printf(va_arg(*ap, int), *ptr);
 	if (*c == 's')
-		conversion_length = print_str(va_arg(*ap, char *), *ptr);
+		conversion_length = print_str_printf(va_arg(*ap, char *), *ptr);
 	if (*c == 'p')
-		conversion_length = print_ptr(va_arg(*ap, void *), *ptr);
+		conversion_length = print_ptr_printf(va_arg(*ap, void *), *ptr);
 	if (*c == '%')
-		conversion_length = print_char('%', *ptr);
+		conversion_length = print_char_printf('%', *ptr);
 	if (*c == '\0')
 	{
 		*ptr = NULL;

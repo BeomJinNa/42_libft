@@ -6,13 +6,13 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 02:38:06 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 08:03:10 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:49:25 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-size_t	digit_of_address(unsigned long long num)
+size_t	digit_of_address_printf(unsigned long long num)
 {
 	unsigned long long	dummy;
 	size_t				digit;

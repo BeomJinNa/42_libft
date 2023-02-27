@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 05:26:20 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 07:15:01 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:50:54 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 void		*ft_memset(void *b, int c, size_t len);
 int			ft_atoi(const char *str);
-void		set_flags(const char c, t_flags *flags);
-int			is_flag_character(const char c);
+void		set_flags_printf(const char c, t_flags *flags);
+int			is_flag_character_printf(const char c);
 static int	put_result(char c, t_flags *flags);
 ssize_t		ft_write_printf(const void *buf, size_t nbyte);
 
-int	print_char(char c, const char *ptr)
+int	print_char_printf(char c, const char *ptr)
 {
 	t_flags	flags;
 
 	ft_memset(&flags, 0, sizeof(t_flags));
-	while (is_flag_character(*(++ptr)))
-		set_flags(*ptr, &flags);
+	while (is_flag_character_printf(*(++ptr)))
+		set_flags_printf(*ptr, &flags);
 	flags.width = ft_atoi(ptr);
 	return (put_result(c, &flags));
 }

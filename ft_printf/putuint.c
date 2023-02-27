@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 16:04:46 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 18:48:42 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:50:09 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	write_nbr(char *buffer, size_t buffer_len);
 ssize_t		ft_write_printf(const void *buf, size_t nbyte);
 
-void	put_uint(unsigned int num)
+void	put_uint_printf(unsigned int num)
 {
 	char		buffer[10];
 	char		*ptr;

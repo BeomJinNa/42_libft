@@ -6,7 +6,7 @@
 /*   By: bena <bena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 01:14:49 by bena              #+#    #+#             */
-/*   Updated: 2023/02/23 18:48:14 by bena             ###   ########.fr       */
+/*   Updated: 2023/02/27 18:41:36 by bena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 #include "length.h"
 
 void		putnbr_printf(int n);
-void		set_lengths(long long num, t_length *l, t_flags *f, int base);
+void		set_lengths_prf(long long num, t_length *l, t_flags *f, int base);
 static void	put_sign(char conversion);
 static void	put_paddings(t_length *length, t_flags *flags);
 static void	put_precision(size_t count);
 static void	put_hex(unsigned int num, char conversion);
-void		puthex_u(unsigned int num);
-void		puthex_l(unsigned int num);
+void		puthex_u_printf(unsigned int num);
+void		puthex_l_printf(unsigned int num);
 ssize_t		ft_write_printf(const void *buf, size_t nbyte);
 
-int	print_hex(unsigned int num, t_flags *flags, char conversion)
+int	print_hex_printf(unsigned int num, t_flags *flags, char conversion)
 {
 	t_length	length;
 
-	set_lengths((long long)num, &length, flags, 16);
+	set_lengths_prf((long long)num, &length, flags, 16);
 	if (flags->left_align == 0 && flags->zero_padding != F_ZERO_PADDING)
 		put_paddings(&length, flags);
 	if (flags->base_visible == 1 && num != 0)
@@ -77,7 +77,7 @@ static void	put_precision(size_t count)
 static void	put_hex(unsigned int num, char conversion)
 {
 	if (conversion == 'x')
-		puthex_l(num);
+		puthex_l_printf(num);
 	if (conversion == 'X')
-		puthex_u(num);
+		puthex_u_printf(num);
 }
