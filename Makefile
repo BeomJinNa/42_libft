@@ -62,7 +62,9 @@ SRCS	=	ft_atoi.c \
 			ft_printf/printf_utils3.c \
 			ft_printf/putaddress.c \
 			ft_printf/puthex.c \
-			ft_printf/putuint.c
+			ft_printf/putuint.c \
+			get_next_line/get_next_line.c \
+			get_next_line/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
